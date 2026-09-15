@@ -1,0 +1,343 @@
+/* ============================================================
+   ID CARD MODULE — SCOPED CSS
+   All class names prefixed with "idc-" to avoid conflicts
+   with existing receipt generator styles.
+   ============================================================ */
+
+/* ---------- Page layout ---------- */
+.idc-page {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.idc-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+@media (max-width: 900px) {
+  .idc-split {
+    grid-template-columns: 1fr;
+    padding: 20px 12px;
+    gap: 24px;
+  }
+}
+
+/* ---------- Form panel ---------- */
+.idc-form-panel {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+  padding: 28px 24px;
+}
+
+.idc-form-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 6px 0;
+}
+
+.idc-form-subtitle {
+  font-size: 0.85rem;
+  color: #777;
+  margin: 0 0 24px 0;
+}
+
+.idc-field-group {
+  margin-bottom: 18px;
+}
+
+.idc-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.idc-input {
+  width: 100%;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+.idc-input:focus {
+  border-color: #cc0000;
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.10);
+  background: white;
+}
+
+.idc-input[readonly] {
+  background: #f0f0f0;
+  color: #555;
+  cursor: default;
+}
+
+.idc-select {
+  width: 100%;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  color: #111;
+  outline: none;
+  background: #fafafa;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  appearance: auto;
+}
+
+.idc-select:focus {
+  border-color: #cc0000;
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.10);
+  background: white;
+}
+
+/* Club selector cards */
+.idc-club-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.idc-club-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 14px 10px;
+  cursor: pointer;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.idc-club-card:hover {
+  border-color: #cc0000;
+  background: #fff5f5;
+  box-shadow: 0 2px 12px rgba(204, 0, 0, 0.10);
+}
+
+.idc-club-card.selected {
+  border-color: #cc0000;
+  background: #fff0f0;
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.15);
+}
+
+.idc-club-card img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.idc-club-card-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.2;
+}
+
+/* Photo upload */
+.idc-photo-upload-area {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  background: #fafafa;
+}
+
+.idc-photo-upload-area:hover {
+  border-color: #cc0000;
+  background: #fff8f8;
+}
+
+.idc-photo-upload-area.has-photo {
+  border-style: solid;
+  border-color: #cc0000;
+  padding: 10px;
+}
+
+.idc-photo-preview {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.idc-photo-hint {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 6px 0 0 0;
+}
+
+.idc-photo-icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* Error message */
+.idc-error {
+  background: #fff2f2;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  color: #cc0000;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+/* Generate button */
+.idc-generate-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+  margin-top: 4px;
+}
+
+.idc-generate-btn:hover {
+  background: linear-gradient(135deg, #dd0000 0%, #aa0000 100%);
+  box-shadow: 0 4px 16px rgba(204, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.idc-generate-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- Preview panel ---------- */
+.idc-preview-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+.idc-preview-panel-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #555;
+  text-align: center;
+  margin: 0;
+}
+
+/* Empty state */
+.idc-empty-state {
+  background: white;
+  border-radius: 20px;
+  padding: 60px 30px;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+.idc-empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 14px;
+  opacity: 0.4;
+}
+
+.idc-empty-text {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Download button */
+.idc-download-btn {
+  background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 13px 32px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.idc-download-btn:hover {
+  box-shadow: 0 4px 16px rgba(204, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+.idc-download-btn:active {
+  transform: translateY(0);
+}
+
+/* Card animation on generation */
+@keyframes idc-card-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.idc-card-appear {
+  animation: idc-card-appear 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Form grid for two columns */
+.idc-form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 480px) {
+  .idc-form-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .idc-club-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Divider */
+.idc-divider {
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  margin: 18px 0;
+}

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 
-import vsaLogo from "../assets/logo.jpg";
+import vsaLogo from "../assets/vsa-logo.png";
 import academy2Logo from "../assets/dbfa-logo.png";
 import signature from "../assets/signature.png";
 
