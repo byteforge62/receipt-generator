@@ -90,7 +90,7 @@ export default function ReceiptForm() {
       "VSA CHAMP KID",
       "VSA ATLADARA",
     ],
-    dbfa: ["DBSC APS TARSAALI", "DBSC RANG ANGEL ATLADRA",  "DBSC Hoppers"],
+    dbfa: ["DBSC APS TARSAALI", "DBSC RANG ANGEL ATLADRA",  "DBSC FC"],
   };
   return (
     <div className="bg-white rounded-2xl shadow-xl p-6 md:p-10">
