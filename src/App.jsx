@@ -10,6 +10,7 @@ export default function App() {
       <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200">
         {/* ── Top Navigation Bar ───────────────────────────────────── */}
         <nav
+          className="no-print"
           style={{
             background: "#111111",
             padding: "0 24px",

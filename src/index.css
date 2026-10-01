@@ -14,7 +14,7 @@
     margin: 0;
   }
 
-  .no-print {
+  nav, header, .no-print {
     display: none !important;
   }
 

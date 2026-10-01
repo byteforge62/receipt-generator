@@ -54,7 +54,7 @@ export default function Receipt({ data }) {
         break-inside: avoid !important;
       }
 
-      .no-print {
+      nav, header, .no-print {
         display: none !important;
       }
     }
