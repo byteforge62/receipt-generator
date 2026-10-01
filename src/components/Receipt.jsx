@@ -151,6 +151,12 @@ export default function Receipt({ data }) {
                 <span className="text-green-600 font-semibold">Completed</span>
               )}
             </p>
+
+            {data.statusNote && (
+              <p>
+                <b>Note:</b> <span className="text-gray-700">{data.statusNote}</span>
+              </p>
+            )}
           </div>
 
           <div className="bg-gray-100 rounded-lg p-4 w-full md:w-72">

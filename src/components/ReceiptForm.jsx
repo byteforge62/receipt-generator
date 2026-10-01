@@ -23,6 +23,7 @@ export default function ReceiptForm() {
     discount: "",
     finalTotal: "",
     paymentStatus: "completed",
+    statusNote: "",
   });
 
   const handleChange = (e) => {
@@ -271,6 +272,20 @@ export default function ReceiptForm() {
             <option value="completed">Completed</option>
             <option value="pending">Pending</option>
           </select>
+        </div>
+
+        {/* STATUS NOTE */}
+        <div>
+          <label className="block text-sm font-medium mb-1">
+            Status Note / Remark
+          </label>
+          <input
+            name="statusNote"
+            value={form.statusNote}
+            onChange={handleChange}
+            placeholder="e.g. Balance due date or note"
+            className="input"
+          />
         </div>
 
         {/* Payment Details */}
