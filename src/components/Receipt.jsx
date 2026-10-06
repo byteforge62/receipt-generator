@@ -187,7 +187,8 @@ export default function Receipt({ data }) {
           <div className="flex flex-row justify-between items-end gap-2">
             <div className="space-y-0.5 max-w-[65%]">
               <h4 className="font-semibold text-gray-800">{selectedAcademy.name}</h4>
-              <div className="font-bold leading-tight text-gray-800">
+              <div className="mt-2 font-bold leading-tight text-gray-800">
+                <p>Fee Rule</p>
                 <p>Joining before 15th → Full Month Fee</p>
                 <p>Joining 15th or after → Half Month Fee</p>
               </div>
@@ -195,8 +196,10 @@ export default function Receipt({ data }) {
                 Fees once paid are non-refundable. Please keep this receipt for
                 future reference.
               </p>
-              <p>Instagram: {selectedAcademy.instagram}</p>
-              <p className="text-gray-400 text-xs">This is a computer-generated receipt.</p>
+              <div className="mt-2">
+                <p>Instagram: {selectedAcademy.instagram}</p>
+                <p className="text-gray-400 text-xs">This is a computer-generated receipt.</p>
+              </div>
             </div>
 
             <div className="text-right shrink-0">
