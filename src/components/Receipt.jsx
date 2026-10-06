@@ -195,7 +195,7 @@ export default function Receipt({ data }) {
                 <p>Joining before 15th → Full Month Fee</p>
                 <p>Joining 15th or after → Half Month Fee</p>
               </div>
-              <p>
+              <p className="font-bold text-gray-800">
                 Fees once paid are non-refundable. Please keep this receipt for
                 future reference.
               </p>
