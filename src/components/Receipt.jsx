@@ -200,8 +200,10 @@ export default function Receipt({ data }) {
                 future reference.
               </p>
               <div className="mt-2">
-                <p>Instagram: {selectedAcademy.instagram}</p>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-800 text-xs">
+                  Instagram: {selectedAcademy.instagram}
+                </p>
+                <p className="text-gray-800 text-xs">
                   This is a computer-generated receipt.
                 </p>
               </div>
