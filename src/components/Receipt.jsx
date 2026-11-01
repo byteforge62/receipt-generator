@@ -259,13 +259,6 @@ export default function Receipt({ data }) {
             </div>
 
             <div className="text-right shrink-0">
-              <img
-                src={base64Images.signature}
-                alt="signature"
-                className="w-24 sm:w-36 md:w-44 ml-auto"
-              />
-              <p className="font-semibold mt-1">{selectedAcademy.manager}</p>
-              <p className="text-xs sm:text-sm">Manager</p>
             </div>
           </div>
         </div>
