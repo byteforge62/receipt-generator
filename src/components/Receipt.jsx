@@ -1,25 +1,74 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 
 import vsaLogo from "../assets/vsa-logo.png";
 import academy2Logo from "../assets/dbsc-logo.png";
 import signature from "../assets/signature.png";
 
+/**
+ * Convert an image URL to a base64 data URL.
+ * This ensures the image is embedded inline and always renders
+ * in print/PDF output (react-to-print uses a hidden iframe where
+ * Vite dev-server asset paths can fail to resolve).
+ */
+function toDataURL(src) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      canvas.getContext("2d").drawImage(img, 0, 0);
+      resolve(canvas.toDataURL("image/png"));
+    };
+    img.onerror = () => resolve(src); // fallback to original if conversion fails
+    img.src = src;
+  });
+}
+
 export default function Receipt({ data }) {
   const receiptRef = useRef(null);
+
+  // Base64-encoded versions of images for reliable print rendering
+  const [base64Images, setBase64Images] = useState({
+    vsaLogo: vsaLogo,
+    dbscLogo: academy2Logo,
+    signature: signature,
+  });
+
+  useEffect(() => {
+    let cancelled = false;
+    async function convertImages() {
+      const [b64Vsa, b64Dbsc, b64Sig] = await Promise.all([
+        toDataURL(vsaLogo),
+        toDataURL(academy2Logo),
+        toDataURL(signature),
+      ]);
+      if (!cancelled) {
+        setBase64Images({
+          vsaLogo: b64Vsa,
+          dbscLogo: b64Dbsc,
+          signature: b64Sig,
+        });
+      }
+    }
+    convertImages();
+    return () => { cancelled = true; };
+  }, []);
 
   const academyConfig = {
     vsa: {
       name: "Vadodara Sports Academia",
       instagram: "@vadodarasportsacademia",
       manager: "Anoop Sunil",
-      logo: vsaLogo,
+      logo: base64Images.vsaLogo,
     },
     dbfa: {
       name: "Dwivedi Brother Football Academy",
       instagram: "@dwivedibrothers.sc",
       manager: "Anoop Sunil",
-      logo: academy2Logo,
+      logo: base64Images.dbscLogo,
     },
   };
 
@@ -211,7 +260,7 @@ export default function Receipt({ data }) {
 
             <div className="text-right shrink-0">
               <img
-                src={signature}
+                src={base64Images.signature}
                 alt="signature"
                 className="w-24 sm:w-36 md:w-44 ml-auto"
               />
